@@ -133,7 +133,9 @@ if ($error==''){
 			
 					$jobs->job->originalXML->Jobs->JobPosition['status']="active";
 					//$jobs->job['users']="Manager RAND-BE";
-					
+
+					//for Cx we combine jobDescription an jobTasksDescription in one field
+					$jobs->job->originalXML->Jobs->JobPosition->JobDetails->JobDescription = $jobs->job->originalXML->Jobs->JobPosition->JobDetails->JobDescription . "<br/><br/>" . $jobs->job->originalXML->Jobs->JobPosition->JobTasksDescription;
 					
 					$first_characters = $reference;
 					$last_characters = $jobs->job->originalXML->Jobs->JobPosition['id'];
